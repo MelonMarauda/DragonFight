@@ -1,0 +1,11 @@
+name: DragonFight
+version: ${project.version}
+main: net.jagsnet.minecraft.plugins.dragonfight.DragonFight
+api-version: 1.17
+commands:
+  adragon:
+    description: Base admin command for the dragon plugin.
+    usage: /adragon
+  dragon:
+    description: Base command for the dragon plugin.
+    usage: /dragon
