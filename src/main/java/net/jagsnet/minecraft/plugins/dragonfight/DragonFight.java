@@ -22,6 +22,7 @@ import static org.bukkit.Bukkit.getServer;
 public final class DragonFight extends JavaPlugin {
     private static DragonFight instance;
 
+    public Long ct = System.currentTimeMillis();
     @Override
     public void onEnable() {
         instance = this;
@@ -42,6 +43,25 @@ public final class DragonFight extends JavaPlugin {
                 Utils.kill();
             }
         }, 100L);
+
+        scheduler.scheduleSyncRepeatingTask(DragonFight.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    World world = Bukkit.getWorld("world_the_end");
+                    DragonBattle battle = world.getEnderDragonBattle();
+                    EnderDragon ed = battle.getEnderDragon();
+                    if (ed.getPhase() == EnderDragon.Phase.CIRCLING) {
+                        if ((System.currentTimeMillis() - ct) > 60000) {
+                            ed.setPhase(EnderDragon.Phase.FLY_TO_PORTAL);
+                            Bukkit.getPlayer("MelonMarauda").sendMessage("Forcing dragon to land");
+                        }
+                    } else {
+                        ct = System.currentTimeMillis();
+                    }
+                } catch (Exception e) {}
+            }
+        }, 100L, 100L);
 
         Utils.setupMain("Main");
         Utils.loadMain("Main");

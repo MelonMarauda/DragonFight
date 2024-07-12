@@ -15,6 +15,7 @@ net\jagsnet\minecraft\plugins\dragonfight\specialAttacks\Lightning$1.class
 net\jagsnet\minecraft\plugins\dragonfight\specialAttacks\CarpetBomb.class
 net\jagsnet\minecraft\plugins\dragonfight\listeners\DragonSpawn.class
 net\jagsnet\minecraft\plugins\dragonfight\specialAttacks\SpawnMobs$1$1.class
+net\jagsnet\minecraft\plugins\dragonfight\DragonFight$2.class
 net\jagsnet\minecraft\plugins\dragonfight\scheduledTasks\DeleteRewards.class
 net\jagsnet\minecraft\plugins\dragonfight\specialAttacks\TeleportPlayers.class
 net\jagsnet\minecraft\plugins\dragonfight\otherStuff\Utils$5.class

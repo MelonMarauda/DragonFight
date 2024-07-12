@@ -69,6 +69,7 @@ public class DragonSpawn implements Listener {
             for (Entity entity: es) {
 
                 if (entity instanceof EnderCrystal) {
+
                     EnderCrystal ec = (EnderCrystal) entity;
 
                     ec.setInvulnerable(false);

@@ -20,6 +20,7 @@ public class DragonPhaseChange implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onDragonPhaseChange(EnderDragonChangePhaseEvent e) {
         if (e.getEntity().getWorld().getName().equalsIgnoreCase("world_the_end")) {
+//            Bukkit.getPlayer("MelonMarauda").sendMessage(e.getCurrentPhase().toString() + " -> " + e.getNewPhase().toString());
             NamespacedKey key = new NamespacedKey(DragonFight.getInstance(), "dragonName");
             if (e.getEntity().getPersistentDataContainer().has(key, PersistentDataType.STRING)) {
                 DragonBattle battle = e.getEntity().getWorld().getEnderDragonBattle();

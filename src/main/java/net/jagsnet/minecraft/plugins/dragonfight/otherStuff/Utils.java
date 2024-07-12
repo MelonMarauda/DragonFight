@@ -6,10 +6,7 @@ import org.bukkit.*;
 import org.bukkit.boss.DragonBattle;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.EnderDragon;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitScheduler;
 
@@ -109,25 +106,29 @@ public class Utils {
         scheduler.scheduleSyncDelayedTask(DragonFight.getInstance(), new Runnable() {
             @Override
             public void run() {
-                world.spawnEntity(new Location(world, portal.getX() + 3.5, portal.getY() + 1, portal.getZ() + 0.5), EntityType.ENDER_CRYSTAL).setInvulnerable(true);
+                Entity crystal = world.spawnEntity(new Location(world, portal.getX() + 3.5, portal.getY() + 1, portal.getZ() + 0.5), EntityType.ENDER_CRYSTAL);
+                crystal.setInvulnerable(true);
             }
         }, 20L);
         scheduler.scheduleSyncDelayedTask(DragonFight.getInstance(), new Runnable() {
             @Override
             public void run() {
-                world.spawnEntity(new Location(world, portal.getX() + 0.5, portal.getY() + 1, portal.getZ() - 2.5), EntityType.ENDER_CRYSTAL).setInvulnerable(true);
+                Entity crystal = world.spawnEntity(new Location(world, portal.getX() + 0.5, portal.getY() + 1, portal.getZ() - 2.5), EntityType.ENDER_CRYSTAL);
+                crystal.setInvulnerable(true);
             }
         }, 40L);
         scheduler.scheduleSyncDelayedTask(DragonFight.getInstance(), new Runnable() {
             @Override
             public void run() {
-                world.spawnEntity(new Location(world, portal.getX() - 2.5, portal.getY() + 1, portal.getZ() + 0.5), EntityType.ENDER_CRYSTAL).setInvulnerable(true);
+                Entity crystal = world.spawnEntity(new Location(world, portal.getX() - 2.5, portal.getY() + 1, portal.getZ() + 0.5), EntityType.ENDER_CRYSTAL);
+                crystal.setInvulnerable(true);
             }
         }, 60L);
         scheduler.scheduleSyncDelayedTask(DragonFight.getInstance(), new Runnable() {
             @Override
             public void run() {
-                world.spawnEntity(new Location(world, portal.getX() + 0.5, portal.getY() + 1, portal.getZ() + 3.5), EntityType.ENDER_CRYSTAL).setInvulnerable(true);
+                Entity crystal = world.spawnEntity(new Location(world, portal.getX() + 0.5, portal.getY() + 1, portal.getZ() + 3.5), EntityType.ENDER_CRYSTAL);
+                crystal.setInvulnerable(true);
             }
         }, 80L);
         scheduler.scheduleSyncDelayedTask(DragonFight.getInstance(), new Runnable() {

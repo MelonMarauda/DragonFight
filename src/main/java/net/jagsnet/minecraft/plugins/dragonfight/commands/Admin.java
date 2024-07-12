@@ -9,6 +9,7 @@ import org.bukkit.boss.DragonBattle;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Player;
 
 public class Admin implements CommandExecutor {
@@ -24,7 +25,7 @@ public class Admin implements CommandExecutor {
             }
 
             if (args.length < 1) {
-                Utils.sendMessage(p, "v1");
+                Utils.sendMessage(p, "V1.1");
                 Utils.sendMessage(p, "/adragon spawn");
                 Utils.sendMessage(p, "/adragon kill");
                 Utils.sendMessage(p, "/adragon setTimer <timeInSeconds>");
@@ -32,6 +33,7 @@ public class Admin implements CommandExecutor {
                 Utils.sendMessage(p, "/adragon getCountdownStatus");
                 Utils.sendMessage(p, "/adragon restartCountdown");
                 Utils.sendMessage(p, "/adragon phase");
+                Utils.sendMessage(p, "/adragon setPhase <dragonPhase>");
                 Utils.sendMessage(p, "/adragon reload");
                 Utils.sendMessage(p, "/adragon nextDragon <dragonName>");
                 return true;
@@ -99,6 +101,14 @@ public class Admin implements CommandExecutor {
                 }
                 DragonSpawn.setDragonName(args[1]);
                 DragonSpawn.setSpecific(true);
+                return true;
+            }
+
+            if (args[0].equalsIgnoreCase("setphase")) {
+                World world = Bukkit.getWorld("world_the_end");
+                DragonBattle battle = world.getEnderDragonBattle();
+                EnderDragon ed = battle.getEnderDragon();
+                ed.setPhase(EnderDragon.Phase.valueOf(args[1]));
                 return true;
             }
 
